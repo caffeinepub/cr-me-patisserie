@@ -19,11 +19,19 @@ export interface Product {
     imageUrl: string;
     price: bigint;
 }
+export interface CustomerQuery {
+    resolved: boolean;
+    question: string;
+    email: string;
+    timestamp: Time;
+}
 export interface backendInterface {
     addBakingTip(tip: string): Promise<void>;
     addTestimonial(testimonial: string): Promise<void>;
+    getAllCustomerQueries(): Promise<Array<CustomerQuery>>;
     getBakingTips(): Promise<Array<string>>;
     getProducts(): Promise<Array<Product>>;
     getShopOpenings(): Promise<Array<ShopOpening>>;
     getTestimonials(): Promise<Array<string>>;
+    submitCustomerQuery(email: string, question: string): Promise<void>;
 }

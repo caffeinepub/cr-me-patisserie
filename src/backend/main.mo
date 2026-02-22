@@ -18,11 +18,19 @@ actor {
     imageUrl : Text;
   };
 
+  type CustomerQuery = {
+    email : Text;
+    question : Text;
+    timestamp : Time.Time;
+    resolved : Bool;
+  };
+
   // State
   let shopOpenings = List.empty<ShopOpening>();
   let products = List.empty<Product>();
   var testimonials : List.List<Text> = List.empty<Text>();
   var bakingTips : List.List<Text> = List.empty<Text>();
+  var customerQueries = List.empty<CustomerQuery>();
 
   // Featured Services ops
   public query func getShopOpenings() : async [ShopOpening] {
@@ -50,6 +58,21 @@ actor {
 
   public func addBakingTip(tip : Text) : async () {
     bakingTips.add(tip);
+  };
+
+  // Customer Queries ops
+  public func submitCustomerQuery(email : Text, question : Text) : async () {
+    let newQuery : CustomerQuery = {
+      email;
+      question;
+      timestamp = Time.now();
+      resolved = false;
+    };
+    customerQueries.add(newQuery);
+  };
+
+  public query func getAllCustomerQueries() : async [CustomerQuery] {
+    customerQueries.toArray();
   };
 
   // Social Media integration is handled in the frontend!

@@ -8,13 +8,19 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
+export const Time = IDL.Int;
+export const CustomerQuery = IDL.Record({
+  'resolved' : IDL.Bool,
+  'question' : IDL.Text,
+  'email' : IDL.Text,
+  'timestamp' : Time,
+});
 export const Product = IDL.Record({
   'name' : IDL.Text,
   'description' : IDL.Text,
   'imageUrl' : IDL.Text,
   'price' : IDL.Nat,
 });
-export const Time = IDL.Int;
 export const ShopOpening = IDL.Record({
   'date' : Time,
   'description' : IDL.Text,
@@ -24,22 +30,30 @@ export const ShopOpening = IDL.Record({
 export const idlService = IDL.Service({
   'addBakingTip' : IDL.Func([IDL.Text], [], []),
   'addTestimonial' : IDL.Func([IDL.Text], [], []),
+  'getAllCustomerQueries' : IDL.Func([], [IDL.Vec(CustomerQuery)], ['query']),
   'getBakingTips' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
   'getProducts' : IDL.Func([], [IDL.Vec(Product)], ['query']),
   'getShopOpenings' : IDL.Func([], [IDL.Vec(ShopOpening)], ['query']),
   'getTestimonials' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
+  'submitCustomerQuery' : IDL.Func([IDL.Text, IDL.Text], [], []),
 });
 
 export const idlInitArgs = [];
 
 export const idlFactory = ({ IDL }) => {
+  const Time = IDL.Int;
+  const CustomerQuery = IDL.Record({
+    'resolved' : IDL.Bool,
+    'question' : IDL.Text,
+    'email' : IDL.Text,
+    'timestamp' : Time,
+  });
   const Product = IDL.Record({
     'name' : IDL.Text,
     'description' : IDL.Text,
     'imageUrl' : IDL.Text,
     'price' : IDL.Nat,
   });
-  const Time = IDL.Int;
   const ShopOpening = IDL.Record({
     'date' : Time,
     'description' : IDL.Text,
@@ -49,10 +63,12 @@ export const idlFactory = ({ IDL }) => {
   return IDL.Service({
     'addBakingTip' : IDL.Func([IDL.Text], [], []),
     'addTestimonial' : IDL.Func([IDL.Text], [], []),
+    'getAllCustomerQueries' : IDL.Func([], [IDL.Vec(CustomerQuery)], ['query']),
     'getBakingTips' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
     'getProducts' : IDL.Func([], [IDL.Vec(Product)], ['query']),
     'getShopOpenings' : IDL.Func([], [IDL.Vec(ShopOpening)], ['query']),
     'getTestimonials' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
+    'submitCustomerQuery' : IDL.Func([IDL.Text, IDL.Text], [], []),
   });
 };
 

@@ -1,23 +1,60 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-22T13:21:41.194Z",
+  "generatedAt": "2026-02-22T14:36:00.780Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 0,
+    "total": 4,
+    "implemented": 4,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Modify the existing luxury bakery website based on the user's upcoming specifications for version 2",
-        "status": "missing",
+        "summary": "In MenuHighlightsSection.tsx line 29, change the name from 'celebration boxes' to 'celebration cakes'",
+        "status": "implemented",
         "plannedFiles": [
+          "frontend/src/components/MenuHighlightsSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/MenuHighlightsSection.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "In MenuHighlightsSection.tsx line 31, change the description from 'perfect for gifting' to 'just perfect'",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/MenuHighlightsSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/MenuHighlightsSection.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Add Instagram contact with username @cremebyishikkarai to the Visit Us section (LocationSection.tsx)",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/LocationSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/LocationSection.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Add a customer query form section where customers can submit queries and provide their email address",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/CustomerQuerySection.tsx",
           "frontend/src/App.tsx"
         ],
-        "matchedFiles": []
+        "matchedFiles": [
+          "frontend/src/components/CustomerQuerySection.tsx",
+          "frontend/src/App.tsx"
+        ]
       }
     ]
   },
@@ -26,11 +63,17 @@
     "backend/migration.mo",
     "build-request.json",
     "feature_evidence.json",
+    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
     "frontend/src/backend.d.ts",
     "frontend/src/backend.ts",
+    "frontend/src/components/CustomerQuerySection.tsx",
+    "frontend/src/components/LocationSection.tsx",
+    "frontend/src/components/MenuHighlightsSection.tsx",
     "frontend/src/declarations/backend.did.d.ts",
     "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

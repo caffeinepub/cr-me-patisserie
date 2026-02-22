@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Download, Eye } from 'lucide-react';
 
 export default function MenuHighlightsSection() {
   const menuItems = [
@@ -20,13 +22,13 @@ export default function MenuHighlightsSection() {
     },
     {
       name: 'Custom Cakes',
-      image: '/assets/generated/menu-custom-cakes.dim_800x600.png',
+      image: '/assets/2024-12-23 (2).webp',
       description: 'Made for your moments'
     },
     {
-      name: 'Celebration Boxes',
-      image: '/assets/generated/menu-celebration-boxes.dim_800x600.png',
-      description: 'Perfect for gifting'
+      name: 'Celebration Cakes',
+      image: '/assets/2024-12-23 (1).webp',
+      description: 'Just perfect'
     }
   ];
 
@@ -41,6 +43,15 @@ export default function MenuHighlightsSection() {
         behavior: 'smooth'
       });
     }
+  };
+
+  const handleDownloadMenu = () => {
+    const link = document.createElement('a');
+    link.href = '/assets/2024-12-23.webp';
+    link.download = 'creme-patisserie-menu.webp';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -82,14 +93,35 @@ export default function MenuHighlightsSection() {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            onClick={() => scrollToSection('menu')}
-            size="lg"
-            variant="outline"
-            className="border-2 border-chocolate text-chocolate hover:bg-chocolate hover:text-cream font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300"
-          >
-            View Full Menu
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-chocolate text-chocolate hover:bg-chocolate hover:text-cream font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300"
+              >
+                <Eye className="mr-2 h-5 w-5" />
+                View Full Menu
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-4xl w-full max-h-[90vh] p-0 overflow-hidden">
+              <div className="relative">
+                <img
+                  src="/assets/2024-12-23.webp"
+                  alt="Crème Pâtisserie Full Menu"
+                  className="w-full h-auto"
+                />
+                <Button
+                  onClick={handleDownloadMenu}
+                  size="sm"
+                  className="absolute top-4 right-4 bg-gold hover:bg-gold/90 text-chocolate font-semibold rounded-full shadow-lg"
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Menu
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
           <Button
             onClick={() => scrollToSection('order')}
             size="lg"

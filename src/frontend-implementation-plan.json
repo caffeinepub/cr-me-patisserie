@@ -1,20 +1,70 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Version 2 Modifications - Awaiting Specifications",
+  "title": "Update menu text, add Instagram contact, and add customer query form",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Prepare framework for version 2 modifications based on upcoming user specifications",
+      "summary": "Change menu item name from 'celebration boxes' to 'celebration cakes' on line 29",
       "acceptanceCriteria": [
-        "User provides specific changes to implement",
-        "Changes are applied to the existing website components and styling"
+        "The menu item name on line 29 displays 'celebration cakes' instead of 'celebration boxes'"
       ],
       "file_operations": [
         {
+          "path": "frontend/src/components/MenuHighlightsSection.tsx",
+          "operation": "modify",
+          "description": "Update line 29 to change the menu item name from 'celebration boxes' to 'celebration cakes'"
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Change menu item description from 'perfect for gifting' to 'just perfect' on line 31",
+      "acceptanceCriteria": [
+        "The description on line 31 displays 'just perfect' instead of 'perfect for gifting'"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MenuHighlightsSection.tsx",
+          "operation": "modify",
+          "description": "Update line 31 to change the description from 'perfect for gifting' to 'just perfect'"
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add Instagram contact with username @cremebyishikkarai to the Visit Us section",
+      "acceptanceCriteria": [
+        "Instagram contact @cremebyishikkarai is displayed in the LocationSection component",
+        "Instagram link or display follows the existing contact information styling pattern"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LocationSection.tsx",
+          "operation": "modify",
+          "description": "Add Instagram contact information with username @cremebyishikkarai to the contact details section, following the existing styling pattern for address, hours, and phone information"
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add customer query form section for collecting queries and email addresses",
+      "acceptanceCriteria": [
+        "New form section is added to collect customer queries and email addresses",
+        "Form includes input fields for email and query message",
+        "Form submission stores query data in the backend",
+        "Form provides user feedback on successful submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CustomerQuerySection.tsx",
+          "operation": "create",
+          "description": "Create a new customer query form section component with input fields for email and query message, form validation, submission handling using the backend submitCustomerQuery method, and user feedback for successful submissions. Style consistently with the luxury bakery theme."
+        },
+        {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Review the current application structure and section orchestration to prepare for applying version 2 changes once specifications are provided. Ensure all existing sections (Header, HeroSection, WhySection, MenuHighlightsSection, TestimonialsSection, CelebrationSection, LocationSection, FinalCTASection, Footer) remain functional while awaiting specific modification requirements."
+          "description": "Import and add the CustomerQuerySection component as the last content section before the footer, placing it after FinalCTASection"
         }
       ]
     }

@@ -1,8 +1,9 @@
 import List "mo:core/List";
+import Time "mo:core/Time";
 
 module {
   type ShopOpening = {
-    date : Int;
+    date : Time.Time;
     location : Text;
     description : Text;
   };
@@ -14,20 +15,29 @@ module {
     imageUrl : Text;
   };
 
-  type OldActor = {};
-  type NewActor = {
+  type CustomerQuery = {
+    email : Text;
+    question : Text;
+    timestamp : Time.Time;
+    resolved : Bool;
+  };
+
+  type OldActor = {
     shopOpenings : List.List<ShopOpening>;
     products : List.List<Product>;
     testimonials : List.List<Text>;
     bakingTips : List.List<Text>;
   };
 
+  type NewActor = {
+    shopOpenings : List.List<ShopOpening>;
+    products : List.List<Product>;
+    testimonials : List.List<Text>;
+    bakingTips : List.List<Text>;
+    customerQueries : List.List<CustomerQuery>;
+  };
+
   public func run(old : OldActor) : NewActor {
-    {
-      shopOpenings = List.empty<ShopOpening>();
-      products = List.empty<Product>();
-      testimonials = List.empty<Text>();
-      bakingTips = List.empty<Text>();
-    };
+    { old with customerQueries = List.empty<CustomerQuery>() };
   };
 };

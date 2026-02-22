@@ -1,34 +1,85 @@
 {
   "kind": "build_request",
-  "title": "Version 2 modifications",
+  "title": "Update menu text, add Instagram contact, and add customer query form",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Modify the existing luxury bakery website based on the user's upcoming specifications for version 2",
-      "target": "unknown",
+      "text": "In MenuHighlightsSection.tsx line 29, change the name from 'celebration boxes' to 'celebration cakes'",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-latest"
+          "msg-user-5"
         ],
         "quotes": [
-          "okay some changes we need to make in version 2"
+          "go to menuHighlightssection.tsk and on line 29 change name with \"celebration boxes\" to \"celebration cakes\""
         ]
       },
       "acceptanceCriteria": [
-        "User provides specific changes to implement",
-        "Changes are applied to the existing website components and styling"
+        "The menu item name on line 29 displays 'celebration cakes' instead of 'celebration boxes'"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "In MenuHighlightsSection.tsx line 31, change the description from 'perfect for gifting' to 'just perfect'",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-5"
+        ],
+        "quotes": [
+          "on line 31 change description from \"perfect for gifting\" to \"just perfect\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "The description on line 31 displays 'just perfect' instead of 'perfect for gifting'"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add Instagram contact with username @cremebyishikkarai to the Visit Us section (LocationSection.tsx)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-5"
+        ],
+        "quotes": [
+          "in the visit us section include instagram contact with username @cremebyishikkarai"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Instagram contact @cremebyishikkarai is displayed in the LocationSection component",
+        "Instagram link or display follows the existing contact information styling pattern"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add a customer query form section where customers can submit queries and provide their email address",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-user-5"
+        ],
+        "quotes": [
+          "in the last section include a section where the customers can post queries so we can get their email"
+        ]
+      },
+      "acceptanceCriteria": [
+        "New form section is added to collect customer queries and email addresses",
+        "Form includes input fields for email and query message",
+        "Form submission stores query data in the backend",
+        "Form provides user feedback on successful submission"
       ]
     }
   ],
   "constraints": [
-    "Preserve the existing single-actor Motoko backend architecture",
-    "Maintain the OKLCH color palette and luxury bakery design system",
-    "Do not modify immutable frontend paths including hooks and UI components"
+    "Maintain existing styling and design patterns from the luxury bakery theme",
+    "Keep all changes consistent with the current component architecture"
   ],
   "nonGoals": [
-    "Creating new features not specified by the user",
-    "Changing the technology stack"
+    "Changing any other menu items or descriptions not specified",
+    "Modifying the backend schema beyond what's needed for the query form",
+    "Adding email notification functionality"
   ],
   "imageRequirements": {
     "required": [],

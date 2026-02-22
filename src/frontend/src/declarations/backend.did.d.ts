@@ -10,6 +10,12 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
+export interface CustomerQuery {
+  'resolved' : boolean,
+  'question' : string,
+  'email' : string,
+  'timestamp' : Time,
+}
 export interface Product {
   'name' : string,
   'description' : string,
@@ -25,10 +31,12 @@ export type Time = bigint;
 export interface _SERVICE {
   'addBakingTip' : ActorMethod<[string], undefined>,
   'addTestimonial' : ActorMethod<[string], undefined>,
+  'getAllCustomerQueries' : ActorMethod<[], Array<CustomerQuery>>,
   'getBakingTips' : ActorMethod<[], Array<string>>,
   'getProducts' : ActorMethod<[], Array<Product>>,
   'getShopOpenings' : ActorMethod<[], Array<ShopOpening>>,
   'getTestimonials' : ActorMethod<[], Array<string>>,
+  'submitCustomerQuery' : ActorMethod<[string, string], undefined>,
 }
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];

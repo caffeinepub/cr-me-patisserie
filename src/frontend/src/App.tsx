@@ -6,7 +6,9 @@ import MenuHighlightsSection from './components/MenuHighlightsSection';
 import CelebrationSection from './components/CelebrationSection';
 import LocationSection from './components/LocationSection';
 import FinalCTASection from './components/FinalCTASection';
+import CustomerQuerySection from './components/CustomerQuerySection';
 import Footer from './components/Footer';
+import { Toaster } from '@/components/ui/sonner';
 
 function App() {
   return (
@@ -20,8 +22,10 @@ function App() {
         <CelebrationSection />
         <LocationSection />
         <FinalCTASection />
+        <CustomerQuerySection />
       </main>
       <Footer />
+      <Toaster />
     </div>
   );
 }

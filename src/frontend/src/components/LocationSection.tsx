@@ -1,9 +1,11 @@
 import { MapPin, Clock, Phone } from 'lucide-react';
+import { SiInstagram } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 
 export default function LocationSection() {
   const address = 'Civil Lines, Jhansi, Uttar Pradesh 284001';
   const phone = '08004517316';
+  const instagram = '@cremebyishikkarai';
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
@@ -15,7 +17,7 @@ export default function LocationSection() {
           </h2>
           
           <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 rounded-full bg-blush/30 flex items-center justify-center mb-4">
                   <MapPin className="w-8 h-8 text-chocolate" />
@@ -46,6 +48,21 @@ export default function LocationSection() {
                   className="text-chocolate/70 hover:text-chocolate transition-colors"
                 >
                   {phone}
+                </a>
+              </div>
+
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-blush/30 flex items-center justify-center mb-4">
+                  <SiInstagram className="w-8 h-8 text-chocolate" />
+                </div>
+                <h3 className="font-semibold text-chocolate mb-2">Instagram</h3>
+                <a
+                  href={`https://instagram.com/${instagram.replace('@', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-chocolate/70 hover:text-chocolate transition-colors"
+                >
+                  {instagram}
                 </a>
               </div>
             </div>

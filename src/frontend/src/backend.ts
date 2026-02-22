@@ -101,13 +101,21 @@ export interface Product {
     imageUrl: string;
     price: bigint;
 }
+export interface CustomerQuery {
+    resolved: boolean;
+    question: string;
+    email: string;
+    timestamp: Time;
+}
 export interface backendInterface {
     addBakingTip(tip: string): Promise<void>;
     addTestimonial(testimonial: string): Promise<void>;
+    getAllCustomerQueries(): Promise<Array<CustomerQuery>>;
     getBakingTips(): Promise<Array<string>>;
     getProducts(): Promise<Array<Product>>;
     getShopOpenings(): Promise<Array<ShopOpening>>;
     getTestimonials(): Promise<Array<string>>;
+    submitCustomerQuery(email: string, question: string): Promise<void>;
 }
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
@@ -136,6 +144,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.addTestimonial(arg0);
+            return result;
+        }
+    }
+    async getAllCustomerQueries(): Promise<Array<CustomerQuery>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllCustomerQueries();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllCustomerQueries();
             return result;
         }
     }
@@ -192,6 +214,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.getTestimonials();
+            return result;
+        }
+    }
+    async submitCustomerQuery(arg0: string, arg1: string): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.submitCustomerQuery(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.submitCustomerQuery(arg0, arg1);
             return result;
         }
     }
