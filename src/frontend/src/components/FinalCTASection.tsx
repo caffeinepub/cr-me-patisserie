@@ -1,21 +1,9 @@
+import { Link } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 
 export default function FinalCTASection() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
-    <section id="order" className="relative py-32 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
           src="/assets/generated/cta-bg.dim_1600x900.png"
@@ -34,13 +22,14 @@ export default function FinalCTASection() {
           Order online or visit us in Jhansi today.
         </p>
         
-        <Button
-          onClick={() => scrollToSection('location')}
-          size="lg"
-          className="bg-gold hover:bg-gold/90 text-chocolate font-semibold px-12 py-7 text-xl rounded-full transition-all duration-300 hover:scale-105 shadow-xl"
-        >
-          Order Now
-        </Button>
+        <Link to="/contact">
+          <Button
+            size="lg"
+            className="bg-gold hover:bg-gold/90 text-chocolate font-semibold px-12 py-7 text-xl rounded-full transition-all duration-300 hover:scale-105 shadow-xl"
+          >
+            Order Now
+          </Button>
+        </Link>
       </div>
     </section>
   );

@@ -5,6 +5,10 @@ import { Toaster } from '@/components/ui/sonner';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import MenuPage from './pages/MenuPage';
+import CelebrationsPage from './pages/CelebrationsPage';
+import ContactPage from './pages/ContactPage';
 import AdminPage from './pages/AdminPage';
 
 const queryClient = new QueryClient();
@@ -35,6 +39,34 @@ const indexRoute = createRoute({
   component: HomePage,
 });
 
+// About route
+const aboutRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/about',
+  component: AboutPage,
+});
+
+// Menu route
+const menuRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/menu',
+  component: MenuPage,
+});
+
+// Celebrations route
+const celebrationsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/celebrations',
+  component: CelebrationsPage,
+});
+
+// Contact route
+const contactRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/contact',
+  component: ContactPage,
+});
+
 // Admin route
 const adminRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -43,7 +75,14 @@ const adminRoute = createRoute({
 });
 
 // Create router
-const routeTree = rootRoute.addChildren([indexRoute, adminRoute]);
+const routeTree = rootRoute.addChildren([
+  indexRoute,
+  aboutRoute,
+  menuRoute,
+  celebrationsRoute,
+  contactRoute,
+  adminRoute,
+]);
 const router = createRouter({ routeTree });
 
 function App() {

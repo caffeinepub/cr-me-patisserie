@@ -1,22 +1,57 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [],
+  "summary": "Website project with pricing strategy planning (₹15,000 setup + ₹1,000/month maintenance). User wants to understand Version 10's page count and modify it to have 3-5 pages for customer sales.",
+  "architectural_notes": [
+    "Project is hosted on Internet Computer via Caffeine platform",
+    "Version 10 is current production version",
+    "Managed service model - owner retains control and provides maintenance"
+  ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-remove-the-login-logout-button-located-at-xpath-html-1-body-1-div-1-div-1-header-1-div-1-div-1-div-1-button-1-from-the-header-component",
-      "title": "Remove the login/logout button located at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[1]/button[1] from the Header component",
+      "id": "feature-analyze-the-current-single-page-layout-homepage-tsx-with-7-sections-hero-why-testimonials-menuhighlights-celebration-location-finalcta-and-restructure-it-into-3-5-separate-routable-pages-with-distinct-urls",
+      "title": "Analyze the current single-page layout (HomePage.tsx with 7 sections: Hero, Why, Testimonials, MenuHighlights, Celebration, Location, FinalCTA) and restructure it into 3-5 separate routable pages with distinct URLs",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-header-component-navigation-to-include-links-to-all-new-pages-maintaining-the-existing-admin-button-and-order-now-cta-while-adding-page-navigation-menu-items",
+      "title": "Update the Header component navigation to include links to all new pages, maintaining the existing admin button and Order Now CTA while adding page navigation menu items",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-react-router-configuration-in-app-tsx-to-support-the-new-multi-page-structure-with-routes-for-each-of-the-3-5-pages-while-maintaining-the-existing-admin-route",
+      "title": "Update React Router configuration in App.tsx to support the new multi-page structure with routes for each of the 3-5 pages while maintaining the existing /admin route",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-internal-links-and-ctas-order-now-buttons-scroll-to-location-functionality-menu-view-buttons-work-correctly-across-the-new-multi-page-structure-updating-any-section-scroll-behavior-to-page-navigation-where-appropriate",
+      "title": "Ensure internal links and CTAs (Order Now buttons, scroll-to-location functionality, menu view buttons) work correctly across the new multi-page structure, updating any section-scroll behavior to page navigation where appropriate",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
     }
   ],
-  "new_feature_requests": [],
-  "projectName": "Remove login/logout button from header",
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Modify Version 10 to have 3-5 pages suitable for selling to customers",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Crème Patisserie",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

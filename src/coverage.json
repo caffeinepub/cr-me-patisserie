@@ -1,24 +1,68 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-22T15:29:47.782Z",
+  "generatedAt": "2026-02-22T16:21:18.867Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 4,
+    "implemented": 4,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Remove the login/logout button located at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[1]/button[1] from the Header component",
+        "summary": "Analyze the current single-page layout (HomePage.tsx with 7 sections: Hero, Why, Testimonials, MenuHighlights, Celebration, Location, FinalCTA) and restructure it into 3-5 separate routable pages with distinct URLs",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AboutPage.tsx",
+          "frontend/src/pages/MenuPage.tsx",
+          "frontend/src/pages/CelebrationsPage.tsx",
+          "frontend/src/pages/ContactPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AboutPage.tsx",
+          "frontend/src/pages/MenuPage.tsx",
+          "frontend/src/pages/CelebrationsPage.tsx",
+          "frontend/src/pages/ContactPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Update the Header component navigation to include links to all new pages, maintaining the existing admin button and Order Now CTA while adding page navigation menu items",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/Header.tsx"
         ],
         "matchedFiles": [
           "frontend/src/components/Header.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Update React Router configuration in App.tsx to support the new multi-page structure with routes for each of the 3-5 pages while maintaining the existing /admin route",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Ensure internal links and CTAs (Order Now buttons, scroll-to-location functionality, menu view buttons) work correctly across the new multi-page structure, updating any section-scroll behavior to page navigation where appropriate",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/components/FinalCTASection.tsx",
+          "frontend/src/components/MenuHighlightsSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/components/FinalCTASection.tsx"
         ]
       }
     ]
@@ -28,7 +72,15 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/components/FinalCTASection.tsx",
     "frontend/src/components/Header.tsx",
+    "frontend/src/components/HeroSection.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/CelebrationsPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/MenuPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

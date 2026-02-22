@@ -1,34 +1,90 @@
 {
   "kind": "build_request",
-  "title": "Remove login/logout button from header",
+  "title": "Restructure website to 3-5 pages from current single-page layout",
+  "projectName": "Crème Patisserie",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Remove the login/logout button located at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[1]/button[1] from the Header component",
+      "text": "Analyze the current single-page layout (HomePage.tsx with 7 sections: Hero, Why, Testimonials, MenuHighlights, Celebration, Location, FinalCTA) and restructure it into 3-5 separate routable pages with distinct URLs",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-latest"
+          "msg-20"
         ],
         "quotes": [
-          "remove it"
+          "okay how many pages are in version 10. how can i make it be for 3 to 5 pages"
         ]
       },
       "acceptanceCriteria": [
-        "The login/logout button is no longer visible in the header",
-        "The header layout adjusts appropriately without the button",
-        "Internet Identity authentication hooks remain available for other components if needed"
+        "Current 7 sections are reorganized into 3-5 logical page groupings",
+        "Each new page has its own route (e.g., /about, /menu, /contact)",
+        "Navigation structure allows users to move between pages",
+        "All existing content and functionality is preserved across the new page structure"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Update the Header component navigation to include links to all new pages, maintaining the existing admin button and Order Now CTA while adding page navigation menu items",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-20"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header displays navigation links to all 3-5 pages",
+        "Current admin button and Order Now CTA remain functional",
+        "Navigation is responsive and works on mobile devices",
+        "Active page is visually indicated in the navigation"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update React Router configuration in App.tsx to support the new multi-page structure with routes for each of the 3-5 pages while maintaining the existing /admin route",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-20"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All 3-5 new pages have defined routes",
+        "Existing /admin route continues to work",
+        "Home page (/) is properly defined",
+        "Navigation between pages works without page refresh"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Ensure internal links and CTAs (Order Now buttons, scroll-to-location functionality, menu view buttons) work correctly across the new multi-page structure, updating any section-scroll behavior to page navigation where appropriate",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-20"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Order Now buttons navigate to the appropriate page with location information",
+        "All CTAs across pages function correctly",
+        "Cross-page navigation maintains user context",
+        "No broken links or navigation errors"
       ]
     }
   ],
   "constraints": [
-    "Do not modify frontend/src/hooks/useInternetIdentity.ts or other authentication infrastructure",
-    "Preserve the admin link functionality in the header for authenticated admins"
+    "Do not modify the existing authentication system or admin functionality",
+    "Do not change the backend/main.mo file",
+    "Preserve all existing content from the 7 current sections",
+    "Maintain the luxury bakery theme and visual design",
+    "Keep the existing color palette and typography unchanged"
   ],
   "nonGoals": [
-    "Removing Internet Identity provider or authentication system entirely",
-    "Changing header styling beyond removing the button"
+    "Adding new content or features beyond restructuring existing sections",
+    "Changing the backend data models or API",
+    "Modifying the admin panel functionality",
+    "Redesigning the visual appearance or brand identity",
+    "Adding authentication requirements to public pages"
   ],
   "imageRequirements": {
     "required": [],

@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from '@tanstack/react-router';
+import { Link, useLocation } from '@tanstack/react-router';
 import { useInternetIdentity } from '../hooks/useInternetIdentity';
 import { useIsAdmin } from '../hooks/useAuth';
 import { Button } from '@/components/ui/button';
-import { Shield } from 'lucide-react';
+import { Shield, Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { identity } = useInternetIdentity();
   const { data: isAdmin } = useIsAdmin();
-  const navigate = useNavigate();
+  const location = useLocation();
 
   const isAuthenticated = !!identity;
 
@@ -21,23 +22,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    // Navigate to home page first if not already there
-    navigate({ to: '/' }).then(() => {
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          const offset = 80;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }, 100);
-    });
-  };
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About' },
+    { to: '/menu', label: 'Menu' },
+    { to: '/celebrations', label: 'Celebrations' },
+    { to: '/contact', label: 'Contact' },
+  ];
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <header
@@ -55,9 +48,24 @@ export default function Header() {
             </h1>
           </Link>
           
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`text-chocolate font-medium transition-colors hover:text-gold ${
+                  isActive(link.to) ? 'text-gold border-b-2 border-gold' : ''
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          
           <div className="flex items-center gap-3">
             {isAuthenticated && isAdmin && (
-              <Link to="/admin">
+              <Link to="/admin" className="hidden sm:block">
                 <Button
                   variant="outline"
                   className="border-gold text-chocolate hover:bg-gold/10 font-medium px-4 py-2 rounded-full transition-all duration-300"
@@ -68,14 +76,61 @@ export default function Header() {
               </Link>
             )}
             
-            <Button
-              onClick={() => scrollToSection('order')}
-              className="bg-gold hover:bg-gold/90 text-chocolate font-medium px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md"
+            <Link to="/contact" className="hidden sm:block">
+              <Button
+                className="bg-gold hover:bg-gold/90 text-chocolate font-medium px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md"
+              >
+                Order Now
+              </Button>
+            </Link>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-chocolate hover:text-gold transition-colors"
+              aria-label="Toggle menu"
             >
-              Order Now
-            </Button>
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <nav className="lg:hidden py-4 border-t border-chocolate/10">
+            <div className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-chocolate font-medium transition-colors hover:text-gold px-4 py-2 ${
+                    isActive(link.to) ? 'text-gold bg-gold/10 rounded-lg' : ''
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              {isAuthenticated && isAdmin && (
+                <Link
+                  to="/admin"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-chocolate font-medium transition-colors hover:text-gold px-4 py-2 flex items-center gap-2"
+                >
+                  <Shield className="w-4 h-4" />
+                  Admin
+                </Link>
+              )}
+              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button
+                  className="w-full bg-gold hover:bg-gold/90 text-chocolate font-medium px-6 py-2 rounded-full transition-all duration-300"
+                >
+                  Order Now
+                </Button>
+              </Link>
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );

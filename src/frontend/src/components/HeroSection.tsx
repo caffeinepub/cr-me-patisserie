@@ -1,20 +1,8 @@
+import { Link } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 export default function HeroSection() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image - Your Cafe Photo */}
@@ -42,21 +30,23 @@ export default function HeroSection() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animation-delay-400">
-          <Button
-            onClick={() => scrollToSection('order')}
-            size="lg"
-            className="bg-gold hover:bg-gold/90 text-chocolate font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
-          >
-            Order Now
-          </Button>
-          <Button
-            onClick={() => scrollToSection('location')}
-            size="lg"
-            variant="outline"
-            className="border-2 border-chocolate text-chocolate bg-cream/90 hover:bg-cream font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105"
-          >
-            Visit Us Today
-          </Button>
+          <Link to="/contact">
+            <Button
+              size="lg"
+              className="bg-gold hover:bg-gold/90 text-chocolate font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              Order Now
+            </Button>
+          </Link>
+          <Link to="/contact">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-chocolate text-chocolate bg-cream/90 hover:bg-cream font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105"
+            >
+              Visit Us Today
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
