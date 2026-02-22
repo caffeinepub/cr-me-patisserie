@@ -1,79 +1,34 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-22T14:36:00.780Z",
+  "generatedAt": "2026-02-22T15:29:47.782Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 4,
-    "implemented": 4,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "In MenuHighlightsSection.tsx line 29, change the name from 'celebration boxes' to 'celebration cakes'",
+        "summary": "Remove the login/logout button located at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[1]/button[1] from the Header component",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/MenuHighlightsSection.tsx"
+          "frontend/src/components/Header.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/MenuHighlightsSection.tsx"
-        ]
-      },
-      {
-        "id": "REQ-2",
-        "summary": "In MenuHighlightsSection.tsx line 31, change the description from 'perfect for gifting' to 'just perfect'",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/MenuHighlightsSection.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/MenuHighlightsSection.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Add Instagram contact with username @cremebyishikkarai to the Visit Us section (LocationSection.tsx)",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/LocationSection.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/LocationSection.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Add a customer query form section where customers can submit queries and provide their email address",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/CustomerQuerySection.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/CustomerQuerySection.tsx",
-          "frontend/src/App.tsx"
+          "frontend/src/components/Header.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
-    "backend/main.mo",
-    "backend/migration.mo",
     "build-request.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/App.tsx",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
-    "frontend/src/components/CustomerQuerySection.tsx",
-    "frontend/src/components/LocationSection.tsx",
-    "frontend/src/components/MenuHighlightsSection.tsx",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/declarations/backend.did.js",
-    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/components/Header.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

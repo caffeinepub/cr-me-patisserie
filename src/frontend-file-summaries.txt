@@ -1,6 +1,6 @@
 {
-  "frontend/src/App.tsx": "Main application component that renders the complete luxury bakery website with header, all content sections (hero, why, testimonials, menu, celebration, location, final CTA, customer query form), footer, and toast notifications in a single-page layout.",
-  "frontend/src/components/Header.tsx": "Sticky header component with bakery name and persistent \"Order Now\" button that changes appearance on scroll with backdrop blur effect.",
+  "frontend/src/App.tsx": "Main application component with React Router setup, creating routes for home page and admin page, wrapped with QueryClientProvider and InternetIdentityProvider, using a shared Layout component with Header and Footer.",
+  "frontend/src/components/Header.tsx": "Enhanced header component with navigation links, admin section access for authenticated admins, and Order Now CTA, with scroll effects and backdrop blur (login/logout button removed).",
   "frontend/src/components/HeroSection.tsx": "Hero section with your cafe photo as background (hero-cafe.dim_1920x1080.png), main headline, subtext, badge, and two CTA buttons.",
   "frontend/src/components/WhySection.tsx": "\"More Than A Bakery. An Experience\" section featuring brand story copy and four checkmark bullet points highlighting premium ingredients, presentation, gifting, and local popularity.",
   "frontend/src/components/TestimonialsSection.tsx": "Social proof section displaying 4.9 star rating, \"Most loved cupcakes in Jhansi\" badge, and two customer testimonials with special emphasis on Ajit Singh's quote.",
@@ -12,5 +12,9 @@
   "frontend/src/index.css": "Global styles with clearly documented OKLCH color variables for easy background color customization, including cream, blush, chocolate, and gold palette with inline comments explaining how to modify each color.",
   "frontend/tailwind.config.js": "Tailwind configuration extending theme with custom luxury color palette mapped to CSS variables, maintaining OKLCH format with comments for clarity.",
   "frontend/src/components/CustomerQuerySection.tsx": "Customer query form section component with input fields for email and query message, form validation, submission handling using the backend submitCustomerQuery method, and toast notifications for user feedback styled with the luxury bakery theme.",
-  "frontend/src/hooks/useQueries.ts": "React Query custom hook that manages customer query submission to the backend with proper error handling and cache invalidation."
+  "frontend/src/hooks/useQueries.ts": "Placeholder file kept to avoid breaking imports after customer query functionality was removed from the application.",
+  "frontend/src/pages/HomePage.tsx": "Home page component that renders all the main bakery website sections (hero, why, testimonials, menu, celebration, location, and CTA) without the customer query form.",
+  "frontend/src/pages/AdminPage.tsx": "Admin dashboard page that shows access control with authentication and authorization checks, displaying access denied for non-admins and a simple admin panel placeholder for authorized admins.",
+  "frontend/src/components/LoginPrompt.tsx": "Login prompt component with luxury bakery styling that displays a centered card with Internet Identity login button for accessing the admin section.",
+  "frontend/src/hooks/useAuth.ts": "Authentication utility hooks including useIsAdmin and useGetCallerUserRole that call backend methods to check user permissions using React Query for caching."
 }

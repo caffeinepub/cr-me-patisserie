@@ -1,32 +1,58 @@
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import WhySection from './components/WhySection';
-import TestimonialsSection from './components/TestimonialsSection';
-import MenuHighlightsSection from './components/MenuHighlightsSection';
-import CelebrationSection from './components/CelebrationSection';
-import LocationSection from './components/LocationSection';
-import FinalCTASection from './components/FinalCTASection';
-import CustomerQuerySection from './components/CustomerQuerySection';
-import Footer from './components/Footer';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { RouterProvider, createRouter, createRoute, createRootRoute, Outlet } from '@tanstack/react-router';
+import { InternetIdentityProvider } from './hooks/useInternetIdentity';
 import { Toaster } from '@/components/ui/sonner';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import AdminPage from './pages/AdminPage';
 
-function App() {
+const queryClient = new QueryClient();
+
+// Layout component with Header and Footer
+function Layout() {
   return (
     <div className="min-h-screen bg-cream">
       <Header />
       <main>
-        <HeroSection />
-        <WhySection />
-        <TestimonialsSection />
-        <MenuHighlightsSection />
-        <CelebrationSection />
-        <LocationSection />
-        <FinalCTASection />
-        <CustomerQuerySection />
+        <Outlet />
       </main>
       <Footer />
       <Toaster />
     </div>
+  );
+}
+
+// Root route with layout
+const rootRoute = createRootRoute({
+  component: Layout,
+});
+
+// Home route
+const indexRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/',
+  component: HomePage,
+});
+
+// Admin route
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/admin',
+  component: AdminPage,
+});
+
+// Create router
+const routeTree = rootRoute.addChildren([indexRoute, adminRoute]);
+const router = createRouter({ routeTree });
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <InternetIdentityProvider>
+        <RouterProvider router={router} />
+      </InternetIdentityProvider>
+    </QueryClientProvider>
   );
 }
 

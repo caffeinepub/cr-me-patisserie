@@ -1,69 +1,22 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Bakery website for Creme by Ishikkarai with menu highlights, visit us section, and customer query form",
-  "architectural_notes": [
-    "React-based bakery website with menu highlights section",
-    "Customer engagement features: query form and social media contact"
-  ],
+  "summary": "New project",
+  "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-in-menuhighlightssection-tsx-line-29-change-the-name-from-celebration-boxes-to-celebration-cakes",
-      "title": "In MenuHighlightsSection.tsx line 29, change the name from 'celebration boxes' to 'celebration cakes'",
+      "id": "feature-remove-the-login-logout-button-located-at-xpath-html-1-body-1-div-1-div-1-header-1-div-1-div-1-div-1-button-1-from-the-header-component",
+      "title": "Remove the login/logout button located at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[1]/button[1] from the Header component",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
-    },
-    {
-      "id": "feature-in-menuhighlightssection-tsx-line-31-change-the-description-from-perfect-for-gifting-to-just-perfect",
-      "title": "In MenuHighlightsSection.tsx line 31, change the description from 'perfect for gifting' to 'just perfect'",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-instagram-contact-with-username-cremebyishikkarai-to-the-visit-us-section-locationsection-tsx",
-      "title": "Add Instagram contact with username @cremebyishikkarai to the Visit Us section (LocationSection.tsx)",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-customer-query-form-section-where-customers-can-submit-queries-and-provide-their-email-address",
-      "title": "Add a customer query form section where customers can submit queries and provide their email address",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
     }
   ],
-  "new_feature_requests": [
-    {
-      "id": "AR-1",
-      "summary": "Update menu highlights text: change 'celebration boxes' to 'celebration cakes' and 'perfect for gifting' to 'just perfect'",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Add Instagram contact @cremebyishikkarai to Visit Us section",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Add customer query form section to collect emails",
-      "reqIds": [],
-      "status": "pending"
-    }
-  ],
-  "gameProjectType": "none",
-  "projectName": "Creme by Ishikkarai",
+  "new_feature_requests": [],
+  "projectName": "Remove login/logout button from header",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

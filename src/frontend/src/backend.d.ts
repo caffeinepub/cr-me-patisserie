@@ -13,25 +13,31 @@ export interface ShopOpening {
     description: string;
     location: string;
 }
+export interface UserProfile {
+    name: string;
+}
 export interface Product {
     name: string;
     description: string;
     imageUrl: string;
     price: bigint;
 }
-export interface CustomerQuery {
-    resolved: boolean;
-    question: string;
-    email: string;
-    timestamp: Time;
+export enum UserRole {
+    admin = "admin",
+    user = "user",
+    guest = "guest"
 }
 export interface backendInterface {
     addBakingTip(tip: string): Promise<void>;
     addTestimonial(testimonial: string): Promise<void>;
-    getAllCustomerQueries(): Promise<Array<CustomerQuery>>;
+    assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     getBakingTips(): Promise<Array<string>>;
+    getCallerUserProfile(): Promise<UserProfile | null>;
+    getCallerUserRole(): Promise<UserRole>;
     getProducts(): Promise<Array<Product>>;
     getShopOpenings(): Promise<Array<ShopOpening>>;
     getTestimonials(): Promise<Array<string>>;
-    submitCustomerQuery(email: string, question: string): Promise<void>;
+    getUserProfile(user: Principal): Promise<UserProfile | null>;
+    isCallerAdmin(): Promise<boolean>;
+    saveCallerUserProfile(profile: UserProfile): Promise<void>;
 }

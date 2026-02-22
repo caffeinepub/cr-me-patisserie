@@ -2,75 +2,21 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-menuhighlightssection-tsx-line-29-change-the-name-from-celebration-boxes-to-celebration-cakes",
-      "featureTitle": "In MenuHighlightsSection.tsx line 29, change the name from 'celebration boxes' to 'celebration cakes'",
+      "featureId": "feature-remove-the-login-logout-button-located-at-xpath-html-1-body-1-div-1-div-1-header-1-div-1-div-1-div-1-button-1-from-the-header-component",
+      "featureTitle": "Remove the login/logout button located at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[1]/button[1] from the Header component",
       "files": [
-        "frontend/src/components/MenuHighlightsSection.tsx"
+        "frontend/src/components/Header.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-in-menuhighlightssection-tsx-line-31-change-the-description-from-perfect-for-gifting-to-just-perfect",
-      "featureTitle": "In MenuHighlightsSection.tsx line 31, change the description from 'perfect for gifting' to 'just perfect'",
-      "files": [
-        "frontend/src/components/MenuHighlightsSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-instagram-contact-with-username-cremebyishikkarai-to-the-visit-us-section-locationsection-tsx",
-      "featureTitle": "Add Instagram contact with username @cremebyishikkarai to the Visit Us section (LocationSection.tsx)",
-      "files": [
-        "frontend/src/components/LocationSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-customer-query-form-section-where-customers-can-submit-queries-and-provide-their-email-address",
-      "featureTitle": "Add a customer query form section where customers can submit queries and provide their email address",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/CustomerQuerySection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
       ],
       "confidence": "high"
     }
