@@ -1,0 +1,37 @@
+{
+  "kind": "build_request",
+  "title": "Version 2 modifications",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Modify the existing luxury bakery website based on the user's upcoming specifications for version 2",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "okay some changes we need to make in version 2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User provides specific changes to implement",
+        "Changes are applied to the existing website components and styling"
+      ]
+    }
+  ],
+  "constraints": [
+    "Preserve the existing single-actor Motoko backend architecture",
+    "Maintain the OKLCH color palette and luxury bakery design system",
+    "Do not modify immutable frontend paths including hooks and UI components"
+  ],
+  "nonGoals": [
+    "Creating new features not specified by the user",
+    "Changing the technology stack"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

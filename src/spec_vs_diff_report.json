@@ -1,0 +1,47 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-22T13:21:41.192Z",
+  "summary": "The diff implements backend infrastructure for a luxury bakery website with data management capabilities (shop openings, products, testimonials, baking tips) and migration support. However, the BuildRequest is a placeholder awaiting actual user specifications for version 2 modifications.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "User provides specific changes to implement",
+      "reason": "The BuildRequest explicitly states that user specifications for version 2 are 'upcoming' and not yet provided. The requirement states 'User provides specific changes to implement' but no specific changes were requested in the BuildRequest beyond the generic placeholder.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Changes are applied to the existing website components and styling",
+      "reason": "The diff only modifies backend logic (backend/main.mo, backend/migration.mo) and project metadata. No changes to website components or styling are present. The constraint explicitly mentions not modifying 'immutable frontend paths including hooks and UI components', but no frontend modifications appear in the diff at all.",
+      "evidence": [
+        "backend/main.mo",
+        "backend/migration.mo"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Complete backend data management system with ShopOpening, Product, Testimonials, and BakingTips entities including CRUD operations",
+      "reason": "The BuildRequest is a generic placeholder awaiting specific user requirements. No user specifications requested these specific data types, API methods, or business logic features. The implementation appears to anticipate future needs rather than respond to actual requirements.",
+      "evidence": [
+        "backend/main.mo",
+        "backend/migration.mo"
+      ]
+    },
+    {
+      "description": "Migration system with state preservation for shop openings, products, testimonials, and baking tips",
+      "reason": "No migration or state management requirements were specified in the BuildRequest. The migration.mo file and migration integration were not requested.",
+      "evidence": [
+        "backend/migration.mo",
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.95,
+  "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "project_state.json"
+  ]
+}
